@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="standard_corner_radius">4dp</dimen>
+    <dimen name="button_height_standard">40dp</dimen>
+    <dimen name="padding_standard">10dp</dimen>
+    <dimen name="padding_small">5dp</dimen>
+    <dimen name="margin_large">32dp</dimen>
+
+    <!--  Image dimens  -->
+    <dimen name="image_width_small">18dp</dimen>
+    <dimen name="image_height_small">18dp</dimen>
+    <dimen name="image_width_standard">24dp</dimen>
+    <dimen name="image_height_standard">24dp</dimen>
+    <dimen name="image_width_large">56dp</dimen>
+    <dimen name="image_height_large">56dp</dimen>
+    <dimen name="image_height_news_card">140dp</dimen>
+
+    <!--  Text size  -->
+    <dimen name="text_small">14sp</dimen>
+    <dimen name="text_medium">18sp</dimen>
+    <dimen name="text_large">22sp</dimen>
+
+    <!--  elevation  -->
+    <dimen name="elevation">6dp</dimen>
+
+    <!--  radius  -->
+    <dimen name="card_radius">4dp</dimen>
+</resources>

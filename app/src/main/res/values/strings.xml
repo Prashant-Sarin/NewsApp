@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">News App</string>
+    <string name="sample_string">tool text</string>
+
+    <!--  News Activity  -->
+    <string name="news_title">News</string>
+    <string name="news_detail">Details</string>
+
+    <!--  NewsDetail Activity  -->
+    <string name="read_from_source">Read full article</string>
+    <string name="no_connectivity">No Connectivity</string>
+
+    <!--  NewsWeb Activity  -->
+    <string name="news_source">Reading from source</string>
+</resources>
