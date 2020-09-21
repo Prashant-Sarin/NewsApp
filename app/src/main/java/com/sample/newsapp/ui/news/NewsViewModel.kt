@@ -33,8 +33,12 @@ class NewsViewModel : ViewModel() {
                 }
                 if (!newsModel?.articles.isNullOrEmpty()) {
                     Coroutines.io {
+                        val titleList = ArrayList<String>()
+                        newsModel?.articles?.forEach {
+                            titleList.add(it.title ?: "")
+                        }
                         NewsDataBase.getInstance(context).getArticleDao()
-                            .bulkInsert(newsModel?.articles!!)
+                            .updateArticles(newsModel?.articles!!, titleList)
                     }
                 }
                 newsApiSuccess.postValue(true)
