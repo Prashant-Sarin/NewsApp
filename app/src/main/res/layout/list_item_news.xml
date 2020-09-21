@@ -24,7 +24,9 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:id="@+id/clNewsItem"
+            android:onClick="@{(v)->itemClickListener.onItemClick(v,articleModel)}">
 
             <ImageView
                 android:id="@+id/ivNews"
@@ -41,7 +43,6 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="3"
-                android:onClick="@{(v)->itemClickListener.onItemClick(v,articleModel)}"
                 android:paddingStart="@dimen/padding_standard"
                 android:paddingEnd="@dimen/padding_standard"
                 android:text="@{articleModel.title}"
@@ -61,7 +62,6 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="3"
-                android:onClick="@{(v)->itemClickListener.onItemClick(v,articleModel)}"
                 android:paddingStart="@dimen/padding_standard"
                 android:paddingEnd="@dimen/padding_standard"
                 android:paddingBottom="@dimen/padding_standard"
