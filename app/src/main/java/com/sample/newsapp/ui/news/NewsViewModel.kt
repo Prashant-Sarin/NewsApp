@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.sample.newsapp.database.NewsDataBase
 import com.sample.newsapp.database.entities.Article
-import com.sample.newsapp.listeners.RestCallback
 import com.sample.newsapp.model.NewsModel
 import com.sample.newsapp.repository.NewsRepository
 import com.sample.newsapp.util.Coroutines
@@ -23,33 +22,27 @@ class NewsViewModel : ViewModel() {
      * This function fetches news and updates newsApiSuccess(MutableLiveData) based on success/failure
      */
     fun getNews(context: Context) {
+        Coroutines.io {
+            try {
+                newsModel = NewsRepository().getNewsFromApi("IN")
+                Log.d(TAG, "getNews success articles size = ${newsModel?.articles?.size}")
+                Log.d(TAG, "getNews success news totalSize = ${newsModel?.totalResults}")
 
-        val callback = object : RestCallback<NewsModel> {
-            override fun onSuccess(t: NewsModel?) {
-                Log.d(TAG, "getNews success value = $t")
-                Log.d(TAG, "getNews success news size = ${t?.totalResults}")
-                t?.let {
-                    newsModel = it
-                }
                 if (!newsModel?.articles.isNullOrEmpty()) {
-                    Coroutines.io {
-                        val titleList = ArrayList<String>()
-                        newsModel?.articles?.forEach {
-                            titleList.add(it.title ?: "")
-                        }
-                        NewsDataBase.getInstance(context).getArticleDao()
-                            .updateArticles(newsModel?.articles!!, titleList)
+
+                    val titleList = ArrayList<String>()
+                    newsModel?.articles?.forEach {
+                        titleList.add(it.title ?: "")
                     }
+                    NewsDataBase.getInstance(context).getArticleDao()
+                        .updateArticles(newsModel?.articles!!, titleList)
                 }
                 newsApiSuccess.postValue(true)
-            }
-
-            override fun onFailure(error: String) {
+            } catch (ex: Exception) {
                 Log.e(TAG, "getNews failed")
                 newsApiSuccess.postValue(false)
             }
         }
-        NewsRepository().getNewsFromApi("IN", callback)
     }
 
     fun getArticlesFromDB(context: Context) {
