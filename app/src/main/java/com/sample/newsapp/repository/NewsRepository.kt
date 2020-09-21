@@ -6,9 +6,9 @@ import com.sample.newsapp.database.NewsDataBase
 import com.sample.newsapp.database.entities.Article
 import com.sample.newsapp.listeners.RestCallback
 import com.sample.newsapp.model.NewsModel
-import com.sample.newsapp.newsapplication.AppConstants
 import com.sample.newsapp.network.Api
 import com.sample.newsapp.network.ApiHandler
+import com.sample.newsapp.newsapplication.AppConstants
 
 class NewsRepository : ApiHandler() {
 

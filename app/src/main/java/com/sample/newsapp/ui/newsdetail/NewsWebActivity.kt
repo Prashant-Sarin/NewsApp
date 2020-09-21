@@ -1,8 +1,8 @@
 package com.sample.newsapp.ui.newsdetail
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import com.sample.newsapp.R
 import com.sample.newsapp.newsapplication.AppConstants
 import com.sample.newsapp.util.CustomWebViewClient

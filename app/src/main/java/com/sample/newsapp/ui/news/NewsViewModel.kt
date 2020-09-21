@@ -33,8 +33,8 @@ class NewsViewModel : ViewModel() {
                 }
                 if (!newsModel?.articles.isNullOrEmpty()) {
                     Coroutines.io {
-//                        NewsDataBase.getInstance(context).getArticleDao().updateArticles(newsModel?.articles!!)
-                        NewsDataBase.getInstance(context).getArticleDao().bulkInsert(newsModel?.articles!!)
+                        NewsDataBase.getInstance(context).getArticleDao()
+                            .bulkInsert(newsModel?.articles!!)
                     }
                 }
                 newsApiSuccess.postValue(true)
@@ -48,7 +48,7 @@ class NewsViewModel : ViewModel() {
         NewsRepository().getNewsFromApi("IN", callback)
     }
 
-    fun getArticlesFromDB(context: Context){
+    fun getArticlesFromDB(context: Context) {
         Coroutines.io {
             val articles = NewsRepository().getNewsFromDB(context)
             articleList.postValue(articles)

@@ -53,7 +53,6 @@ class NewsAdapter(
         }
 
 
-//        addLinks(holder, feed)
     }
 
     inner class NewsHolder(var listItemNewsBinding: ListItemNewsBinding) :
@@ -70,34 +69,4 @@ class NewsAdapter(
         listener(view, article)
     }
 
-    /**
-     * This method adds links to text under news article object
-     */
-    /* private fun addLinks(holder: NewsHolder, feed: ArticleModel) {
-         val filter = TransformFilter { match, url -> match.group() }
-
-         val mentionPattern: Pattern = Pattern.compile("@([A-Za-z0-9_-]+)")
-         val mentionScheme = "http://www.twitter.com/"
-         Linkify.addLinks(
-             holder.listItemFeedBinding.tvText,
-             mentionPattern,
-             mentionScheme,
-             null,
-             filter
-         )
-
-         val hashtagPattern: Pattern = Pattern.compile("#([A-Za-z0-9_-]+)")
-         val hashtagScheme = "http://www.twitter.com/search/"
-         Linkify.addLinks(
-             holder.listItemFeedBinding.tvText,
-             hashtagPattern,
-             hashtagScheme,
-             null,
-             filter
-         )
-
-         val urlPattern: Pattern = Patterns.WEB_URL
-         Linkify.addLinks(holder.listItemFeedBinding.tvText, urlPattern, null, null, filter)
-     }
- */
 }

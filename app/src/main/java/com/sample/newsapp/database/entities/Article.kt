@@ -22,14 +22,14 @@ data class Article(
     var content: String?
 ) {
     fun getTrimmedContent(): String {
-        return content?.substringBeforeLast("[") ?: (content?:"")
+        return content?.substringBeforeLast("[") ?: (content ?: "")
     }
 
     fun getTrimmedTitle(): String {
-        return title?.substringBeforeLast("-") ?: (title?:"")
+        return title?.substringBeforeLast("-") ?: (title ?: "")
     }
 
-    fun getSourceName(): String{
+    fun getSourceName(): String {
         return "- ${source?.name}"
     }
 }
